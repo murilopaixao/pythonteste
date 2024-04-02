@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: pythonteste
 spec:
+  replicas: 5
   selector:
     matchLabels:
       app: pythonteste
@@ -13,7 +14,7 @@ spec:
     spec:
       containers:
       - name: pythonteste
-        image: pythonteste:v1
+        image: murilopaixao2/pythonteste:v1
         resources:
           limits:
             memory: "128Mi"
@@ -27,6 +28,7 @@ kind: Service
 metadata:
   name: pythonteste
 spec:
+  type: NodePort
   selector:
     app: pythonteste
   ports:
